@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adib | Automotive Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#08090d;
+  color:#eee;
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+:root{
+  --orange:#f59e0b;
+  --dark:#08090d;
+  --card:#10121a;
+  --border:#252936;
+  --muted:#8b93a3;
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(8,9,13,.85);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #ffffff0d;
+}
+
+.logo{
+  font-family:"Space Mono",monospace;
+  font-weight:bold;
+  letter-spacing:2px;
+}
+
+.logo span{
+  color:var(--orange);
+}
+
+.nav-links{
+  display:flex;
+  gap:30px;
+}
+
+.nav-links a{
+  font:11px "Space Mono",monospace;
+  letter-spacing:1px;
+  color:#aaa;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:var(--orange);
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  padding:130px 8% 70px;
+  overflow:hidden;
+  background:
+    linear-gradient(#ffffff06 1px,transparent 1px),
+    linear-gradient(90deg,#ffffff06 1px,transparent 1px);
+  background-size:70px 70px;
+}
+
+.hero-content{
+  max-width:700px;
+  position:relative;
+  z-index:3;
+}
+
+.status{
+  font:11px "Space Mono",monospace;
+  color:var(--orange);
+  letter-spacing:2px;
+  margin-bottom:25px;
+}
+
+.status::before{
+  content:"";
+  display:inline-block;
+  width:8px;
+  height:8px;
+  background:var(--orange);
+  border-radius:50%;
+  margin-right:10px;
+  box-shadow:0 0 15px var(--orange);
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  50%{opacity:.3}
+}
+
+.hero h1{
+  font-size:clamp(65px,10vw,145px);
+  line-height:.82;
+  letter-spacing:-7px;
+  font-weight:800;
+}
+
+.hero h1 span{
+  color:var(--orange);
+}
+
+.hero-text{
+  max-width:580px;
+  color:var(--muted);
+  line-height:1.8;
+  margin:30px 0;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:15px 22px;
+  border:1px solid var(--border);
+  font:11px "Space Mono",monospace;
+  transition:.3s;
+}
+
+.btn-primary{
+  background:var(--orange);
+  color:#08090d;
+  border-color:var(--orange);
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px #f59e0b33;
+}
+
+.btn-secondary:hover{
+  color:var(--orange);
+  border-color:var(--orange);
+}
+
+/* CSS CAR */
+
+.car-area{
+  position:absolute;
+  right:3%;
+  bottom:17%;
+  width:55%;
+  height:260px;
+}
+
+.road{
+  position:absolute;
+  bottom:25px;
+  width:100%;
+  height:2px;
+  background:#333;
+  overflow:hidden;
+}
+
+.road::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:2px;
+  background:var(--orange);
+  box-shadow:
+    180px 0 var(--orange),
+    360px 0 var(--orange),
+    540px 0 var(--orange);
+  animation:road 1s linear infinite;
+}
+
+@keyframes road{
+  from{transform:translateX(0)}
+  to{transform:translateX(-180px)}
+}
+
+.car{
+  position:absolute;
+  width:80%;
+  height:100px;
+  left:10%;
+  bottom:50px;
+  animation:carFloat 3s ease-in-out infinite;
+}
+
+@keyframes carFloat{
+  50%{transform:translateY(-6px)}
+}
+
+.car-body{
+  position:absolute;
+  bottom:15px;
+  width:100%;
+  height:70px;
+  border:2px solid #555;
+  border-radius:25px 60px 15px 15px;
+  background:linear-gradient(145deg,#292d38,#090a0e);
+  box-shadow:0 20px 45px #f59e0b22;
+}
+
+.roof{
+  position:absolute;
+  width:45%;
+  height:48px;
+  left:27%;
+  top:-48px;
+  border:2px solid #555;
+  border-bottom:0;
+  border-radius:60px 60px 0 0;
+}
+
+.window{
+  position:absolute;
+  top:-39px;
+  height:32px;
+  background:#111827;
+  border:1px solid #444;
+}
+
+.window.one{
+  left:32%;
+  width:18%;
+}
+
+.window.two{
+  left:51%;
+  width:19%;
+}
+
+.light{
+  position:absolute;
+  top:25px;
+  width:13px;
+  height:8px;
+  border-radius:4px;
+}
+
+.front-light{
+  right:1%;
+  background:#fff;
+  box-shadow:0 0 20px white;
+}
+
+.back-light{
+  left:1%;
+  background:#ef4444;
+  box-shadow:0 0 15px red;
+}
+
+.wheel{
+  position:absolute;
+  bottom:-27px;
+  width:50px;
+  height:50px;
+  border:6px solid #292d35;
+  background:#050609;
+  border-radius:50%;
+}
+
+.wheel::after{
+  content:"";
+  position:absolute;
+  width:12px;
+  height:12px;
+  background:#888;
+  border-radius:50%;
+  top:13px;
+  left:13px;
+}
+
+.front-wheel{
+  right:13%;
+}
+
+.back-wheel{
+  left:13%;
+}
+
+/* SECTIONS */
+
+section{
+  padding:120px 8%;
+}
+
+.section-title{
+  border-left:2px solid var(--orange);
+  padding-left:20px;
+  margin-bottom:55px;
+}
+
+.section-title small{
+  color:var(--orange);
+  font:11px "Space Mono",monospace;
+  letter-spacing:2px;
+}
+
+.section-title h2{
+  font-size:clamp(45px,7vw,90px);
+  line-height:.9;
+  margin-top:12px;
+  letter-spacing:-4px;
+}
+
+.section-title h2 span{
+  color:var(--orange);
+}
+
+.section-title p{
+  color:var(--muted);
+  margin-top:18px;
+  font:13px "Space Mono",monospace;
+}
+
+/* ABOUT */
+
+.manifesto{
+  padding:35px;
+  background:linear-gradient(135deg,#151822,#0c0d13);
+  border:1px solid var(--border);
+  border-radius:18px;
+  margin-bottom:25px;
+}
+
+.manifesto p{
+  color:#c5cad4;
+  font-size:clamp(18px,2vw,25px);
+  line-height:1.7;
+}
+
+.manifesto strong{
+  color:white;
+}
+
+.manifesto span{
+  color:var(--orange);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:27px;
+  min-height:240px;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#f59e0b88;
+}
+
+.card small{
+  color:var(--orange);
+  font:10px "Space Mono",monospace;
+}
+
+.card h3{
+  margin:22px 0 12px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
+}
+
+.card footer{
+  margin-top:25px;
+  color:#555d6b;
+  font:9px "Space Mono",monospace;
+}
+
+/* SKILLS */
+
+.skills{
+  background:#0c0d12;
+}
+
+.skill{
+  margin-bottom:25px;
+  max-width:750px;
+}
+
+.skill-header{
+  display:flex;
+  justify-content:space-between;
+  font:11px "Space Mono",monospace;
+  margin-bottom:8px;
+}
+
+.skill-header b{
+  color:var(--orange);
+  font-weight:normal;
+}
+
+.bar{
+  height:5px;
+  background:#242832;
+}
+
+.bar span{
+  display:block;
+  height:100%;
+  background:var(--orange);
+}
+
+/* EDUCATION */
+
+.education-box{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.edu{
+  padding:35px;
+  background:var(--card);
+  border:1px solid var(--border);
+}
+
+.edu h3{
+  font-size:24px;
+  margin:15px 0;
+}
+
+.edu p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.edu .tag{
+  color:var(--orange);
+  font:10px "Space Mono",monospace;
+}
+
+/* GARAGE */
+
+.garage{
+  background:#0c0d12;
+}
+
+.garage-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:16px;
+}
+
+.garage-card{
+  min-height:220px;
+  padding:30px;
+  border:1px solid var(--border);
+  background:#10121a;
+  transition:.3s;
+}
+
+.garage-card:hover{
+  border-color:#f59e0b88;
+}
+
+.garage-card.big{
+  grid-row:span 2;
+}
+
+.garage-card .icon{
+  font-size:40px;
+  color:var(--orange);
+  margin-bottom:30px;
+}
+
+.garage-card h3{
+  font-size:25px;
+  margin:12px 0;
+}
+
+.garage-card p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* CONTACT */
+
+.contact{
+  min-height:70vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.contact h2{
+  font-size:clamp(55px,9vw,120px);
+  line-height:.85;
+  letter-spacing:-6px;
+}
+
+.contact h2 span{
+  color:var(--orange);
+}
+
+.contact p{
+  max-width:550px;
+  color:var(--muted);
+  line-height:1.8;
+  margin:25px 0;
+}
+
+.socials{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.socials a{
+  border:1px solid var(--border);
+  padding:16px 22px;
+  font:11px "Space Mono",monospace;
+  transition:.3s;
+}
+
+.socials a:hover{
+  border-color:var(--orange);
+  color:var(--orange);
+}
+
+/* FOOTER */
+
+footer{
+  padding:30px 8%;
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  color:#555d6b;
+  font:9px "Space Mono",monospace;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .car-area{
+    width:90%;
+    right:-25%;
+    opacity:.35;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .garage-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .garage-card.big{
+    grid-row:auto;
+    grid-column:span 2;
+  }
+
+  .education-box{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:90px 6%;
+  }
+
+  .hero{
+    padding:120px 6% 70px;
+  }
+
+  .hero h1{
+    letter-spacing:-4px;
+  }
+
+  .car-area{
+    bottom:12%;
+  }
+
+  .cards,
+  .garage-grid{
+    grid-template-columns:1fr;
+  }
+
+  .garage-card.big{
+    grid-column:auto;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .manifesto{
+    padding:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="logo">ADIB<span>//</span>01</div>
+
+  <div class="nav-links">
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#skills">SKILLS</a>
+    <a href="#education">EDUCATION</a>
+    <a href="#garage">GARAGE</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="status">
+      SYSTEM ONLINE // PORTFOLIO 2026
+    </div>
+
+    <h1>
+      BUILT<br>
+      TO <span>CREATE.</span>
+    </h1>
+
+    <p class="hero-text">
+      I'm <strong>Mohammed Adibulla Khan</strong> — Adib.
+      A 2nd-year BCA student with a passion for coding,
+      machines, design, cars, bikes and everything that moves.
+    </p>
+
+    <div class="buttons">
+      <a class="btn btn-primary" href="#about">
+        EXPLORE PROFILE ↓
+      </a>
+
+      <a class="btn btn-secondary" href="#contact">
+        CONTACT ME
+      </a>
+    </div>
+
+  </div>
+
+
+  <!-- CSS CAR -->
+
+  <div class="car-area">
+
+    <div class="road"></div>
+
+    <div class="car">
+
+      <div class="car-body">
+
+        <div class="roof"></div>
+
+        <div class="window one"></div>
+        <div class="window two"></div>
+
+        <div class="light front-light"></div>
+        <div class="light back-light"></div>
+
+        <div class="wheel front-wheel"></div>
+        <div class="wheel back-wheel"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="section-title">
+
+    <small>DIAGNOSTICS // SYSTEM PROFILE</small>
+
+    <h2>
+      ABOUT THE<br>
+      <span>BUILDER.</span>
+    </h2>
+
+    <p>
+      Mohammed Adibulla Khan // "Adib" —
+      2nd Year BCA @ Mount Carmel College.
+    </p>
+
+  </div>
+
+
+  <div class="manifesto">
+
+    <p>
+      I'm <strong>Mohammed Adibulla Khan</strong> —
+      most people call me Adib. Right now, I'm in my
+      2nd year of BCA at Mount Carmel College.
+      Between coding labs, tech assignments and the
+      daily student grind, you'll find me balancing my
+      studies with my real obsession:
+      <span>machines, speed and custom builds.</span>
+    </p>
+
+  </div>
+
+
+  <div class="cards">
+
+    <div class="card">
+      <small>[01 // WORKSHOP]</small>
+      <h3>Cars, Bikes & Mod Culture</h3>
+      <p>
+        Petrolhead through and through. I'm hooked on
+        custom builds, clean design, performance setups
+        and the details that make a machine feel personal.
+      </p>
+      <footer>STATUS: HIGHWAY RUNS & BUILDS</footer>
+    </div>
+
+
+    <div class="card">
+      <small>[02 // LOGIC]</small>
+      <h3>College & Tech Grind</h3>
+      <p>
+        2nd year BCA means deeper work with code,
+        databases and core systems. I enjoy bringing
+        that same logical mindset into creative
+        problem-solving.
+      </p>
+      <footer>SYSTEM: BCA // YEAR 2</footer>
+    </div>
+
+
+    <div class="card">
+      <small>[03 // HIGH-RPM]</small>
+      <h3>Gaming & Racing</h3>
+      <p>
+        Competitive multiplayer, racing games and
+        tuning simulators — all about precision,
+        strategy, reflexes and having fun with the crew.
+      </p>
+      <footer>FOCUS: RACING & COMPETITIVE PLAY</footer>
+    </div>
+
+
+    <div class="card">
+      <small>[04 // VISUALS]</small>
+      <h3>Style & Presence</h3>
+      <p>
+        Clean streetwear, fresh kicks and an eye for
+        visual details. I like designs that feel sharp
+        without being overloaded.
+      </p>
+      <footer>SIGNATURE: CLEAN // MINIMAL</footer>
+    </div>
+
+
+    <div class="card">
+      <small>[05 // ACOUSTICS]</small>
+      <h3>The Driving Soundtrack</h3>
+      <p>
+        Music is part of the experience — bass-heavy
+        playlists, high-tempo tracks and late-night
+        cruising sounds.
+      </p>
+      <footer>QUEUE: DRIVE // MUSIC // REPEAT</footer>
+    </div>
+
+
+    <div class="card">
+      <small>[06 // CREW]</small>
+      <h3>Good Energy & Loyalty</h3>
+      <p>
+        A genuine circle matters. Whether it's college,
+        future builds, food runs or spontaneous plans,
+        I value people who keep it real.
+      </p>
+      <footer>CORE: AUTHENTIC // POSITIVE</footer>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="skills" id="skills">
+
+  <div class="section-title">
+
+    <small>LOADOUT // CAPABILITIES</small>
+
+    <h2>
+      MY <span>SKILLS.</span>
+    </h2>
+
+    <p>
+      Current technical toolkit.
+    </p>
+
+  </div>
+
+
+  <div class="skill">
+
+    <div class="skill-header">
+      <span>HTML</span>
+      <b>90%</b>
+    </div>
+
+    <div class="bar">
+      <span style="width:90%"></span>
+    </div>
+
+  </div>
+
+
+  <div class="skill">
+
+    <div class="skill-header">
+      <span>CSS</span>
+      <b>85%</b>
+    </div>
+
+    <div class="bar">
+      <span style="width:85%"></span>
+    </div>
+
+  </div>
+
+
+  <div class="skill">
+
+    <div class="skill-header">
+      <span>JAVASCRIPT</span>
+      <b>70%</b>
+    </div>
+
+    <div class="bar">
+      <span style="width:70%"></span>
+    </div>
+
+  </div>
+
+
+  <div class="skill">
+
+    <div class="skill-header">
+      <span>C / JAVA</span>
+      <b>70%</b>
+    </div>
+
+    <div class="bar">
+      <span style="width:70%"></span>
+    </div>
+
+  </div>
+
+
+  <div class="skill">
+
+    <div class="skill-header">
+      <span>DBMS</span>
+      <b>75%</b>
+    </div>
+
+    <div class="bar">
+      <span style="width:75%"></span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+  <div class="section-title">
+
+    <small>ACADEMIC // PROFILE</small>
+
+    <h2>
+      EDUCATION<br>
+      <span>MODULE.</span>
+    </h2>
+
+  </div>
+
+
+  <div class="education-box">
+
+    <div class="edu">
+
+      <div class="tag">CURRENT // 2026</div>
+
+      <h3>Bachelor of Computer Applications</h3>
+
+      <p>
+        Currently pursuing BCA, 2nd Year,
+        at Mount Carmel College.
+      </p>
+
+    </div>
+
+
+    <div class="edu">
+
+      <div class="tag">FOCUS AREAS</div>
+
+      <h3>Technology & Development</h3>
+
+      <p>
+        Web development, programming, databases,
+        computer systems and creative digital projects.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- GARAGE -->
+
+<section class="garage" id="garage">
+
+  <div class="section-title">
+
+    <small>PERSONAL // GARAGE</small>
+
+    <h2>
+      THINGS THAT<br>
+      <span>MOVE ME.</span>
+    </h2>
+
+  </div>
+
+
+  <div class="garage-grid">
+
+
+    <div class="garage-card big">
+
+      <div class="icon">🏎</div>
+
+      <small>PASSION 01</small>
+
+      <h3>PERFORMANCE</h3>
+
+      <p>
+        Engines, exhausts, handling, wheels and the
+        details behind a great build.
+      </p>
+
+    </div>
+
+
+    <div class="garage-card">
+
+      <div class="icon">⌘</div>
+
+      <small>PASSION 02</small>
+
+      <h3>CODING</h3>
+
+      <p>
+        Turning ideas into working digital experiences.
+      </p>
+
+    </div>
+
+
+    <div class="garage-card">
+
+      <div class="icon">▶</div>
+
+      <small>PASSION 03</small>
+
+      <h3>GAMING</h3>
+
+      <p>
+        Competitive games, racing and tuning simulators.
+      </p>
+
+    </div>
+
+
+    <div class="garage-card">
+
+      <div class="icon">♫</div>
+
+      <small>PASSION 04</small>
+
+      <h3>MUSIC</h3>
+
+      <p>
+        Soundtracks for every drive and every mood.
+      </p>
+
+    </div>
+
+
+    <div class="garage-card">
+
+      <div class="icon">⚡</div>
+
+      <small>PASSION 05</small>
+
+      <h3>CUSTOM BUILDS</h3>
+
+      <p>
+        Automotive styling, modifications and creative ideas.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+  <div class="section-title">
+
+    <small>TRANSMISSION // OPEN CHANNEL</small>
+
+  </div>
+
+  <h2>
+    LET'S<br>
+    <span>CONNECT.</span>
+  </h2>
+
+  <p>
+    Got a project, idea or just want to talk cars
+    and technology? Connect with me through my
+    social profiles.
+  </p>
+
+
+  <div class="socials">
+
+    <a
+      href="https://www.linkedin.com/in/md-adibulla-khan-8849a8432"
+      target="_blank">
+      LINKEDIN ↗
+    </a>
+
+    <a
+      href="https://www.instagram.com/adib._khann"
+      target="_blank">
+      INSTAGRAM ↗
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <span>ADIB // AUTOMOTIVE PORTFOLIO</span>
+
+  <span>BUILT WITH HTML • CSS • JAVASCRIPT</span>
+
+  <span>© 2026</span>
+
+</footer>
+
+
+<script>
+
+/* Smooth reveal animation */
+
+const elements =
+document.querySelectorAll(
+  ".card,.edu,.garage-card,.manifesto,.skill"
+);
+
+const observer =
+new IntersectionObserver(
+  entries => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting){
+
+        entry.target.style.opacity="1";
+
+        entry.target.style.transform="translateY(0)";
+
+      }
+
+    });
+
+  },
+  {threshold:.15}
+);
+
+
+elements.forEach(element => {
+
+  element.style.opacity="0";
+
+  element.style.transform="translateY(30px)";
+
+  element.style.transition=
+  "opacity .7s ease, transform .7s ease";
+
+  observer.observe(element);
+
+});
+
+
+/* Small mouse movement effect on car */
+
+document.addEventListener(
+  "mousemove",
+  event => {
+
+    const car =
+    document.querySelector(".car");
+
+    if(window.innerWidth > 900){
+
+      const x =
+      (event.clientX /
+      window.innerWidth - .5) * 10;
+
+      car.style.transform =
+      `translateX(${x}px)`;
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
